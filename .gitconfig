@@ -1,0 +1,51 @@
+[user]
+	name = 大久保　佳尚
+	email = okubo@bokuokubo.jp
+[core]
+	excludesfile = ~/.cvsignore
+[color]
+	ui = always
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow
+	frag = magenta
+	old = red
+	new = green
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[alias]
+	st = status -sb
+	ci = commit
+	cia = commit --amend
+	co = checkout
+	br = branch
+	sb = show-branch
+	cp = cherry-pick
+	rb = rebase
+	rbc = rebase --continue
+	rbs = rebase --skip
+	rl = reflog
+	rs = remote show
+	rt = remote
+	ru = remote update
+	rp = remote prune
+	sm = submodule
+	lg = log --graph --pretty=format:'%Cred%h%Creset - %Cgreen(%cd)%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=local
+	lgf = log --graph --pretty=format:'%Cred%H%Creset - %Cgreen(%cd)%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit --date=local
+	last = !git --no-pager lg -10
+	new  = !git --no-pager lg $1@{1}..$1@{0} "$@"
+	nm = !git name-rev --stdin --always --name-only
+	lastn = !git --no-pager lgf -10 | git nm
+	dtl = show --pretty=format:'%Cred%h%Creset - %Cgreen(%cd)%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --date=local --full-diff
+	staged = diff --cached
+	unstage = reset HEAD
+	sub = submodule update --init --recursive 
+	who = shortlog -n -s --no-merges
+	fa = fetch --all
+[push]
+	default = upstream
